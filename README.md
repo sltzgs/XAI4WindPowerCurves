@@ -4,6 +4,9 @@
 ## About
 Welcome to XAI4WindPowerCurves. We think of explainable artificial intelligence (XAI) as crucial for an informed application of machine learning methods in practice. Here, we soon present implementations of the methods presented in our paper "An XAI framework for robust and transparent data-driven wind turbine power curve models", which was published in [Energy & AI](https://www.sciencedirect.com/science/article/pii/S2666546823001003). Star us for automated updates on the matter.
 
+## How to use code and models:
+to be added.
+
 ## If you use this code please star the repository and cite the following paper:
 
 [S. Letzgus and K.-R. Müller, “An explainable ai framework for robust and transparent data-driven wind turbine power curve models”, Energy and AI, vol. 15, Art. no. 100328, 2024.](https://www.sciencedirect.com/science/article/pii/S2666546823001003)
