@@ -79,7 +79,7 @@ def load_scada_data(data_path: str,
 
     return dct_scada
 
-def load_metmast_data(data_path=str,
+def load_metmast_data(data_path:str,
                       lst_files=['2016_WF1edp_metmast.csv', '2017_WF1edp_metmast.csv']):
     """Load and process met mast data from CSV files.
 
@@ -111,7 +111,7 @@ def load_metmast_data(data_path=str,
 
     return df_metmast_all
 
-def fill_dct_data(dct_data_empty, dct_scada, df_metmast):
+def fill_dct_data(dct_scada, df_metmast):
     """Populate the empty data dictionary with relevant SCADA and met mast data.
 
     Args:
@@ -122,6 +122,9 @@ def fill_dct_data(dct_data_empty, dct_scada, df_metmast):
     Returns:
         dict: Populated data dictionary with SCADA and met mast data.
     """
+    with open('dct_data.pkl', 'rb') as file:
+        dct_data_empty = pickle.load(file) 
+
     for trb_id, datasets in dct_data_empty.items():
         for set_name, data in datasets.items():
             if set_name in ['scaler', 'df_pc']:
@@ -158,6 +161,13 @@ def get_Xy(dct_data, trb_id_, set_, normalized=False):
     else:
         X = np.array(dct_data[trb_id_][set_][dct_data['lst_inputs']])
     return X, y
+
+def load_models(data_path:str): 
+    # Open the file in binary read mode and load the object
+    with open(data_path, 'rb') as file:
+        dct_models = pickle.load(file)
+        print('... models loaded!')
+    return dct_models
 
 class PHYSbase:
     """Physics-based model for wind turbine power prediction."""
